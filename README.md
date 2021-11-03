@@ -25,9 +25,8 @@
     
     4) 채팅시 사용자명 img 아래에 위치하도록 수정완료
     
-    
-    ![채팅 캡처](https://user-images.githubusercontent.com/81874493/140017781-7d0f1257-13fd-4b82-bb46-6b0ec3bd24ad.JPG)
-
-
     @@ 향후 개선 사항
     1) 채팅에 사용할 이름 중복되지 않도록 처리하기
+    
+  
+![채팅 캡처](https://user-images.githubusercontent.com/81874493/140017872-c397289e-b686-42a3-ac00-9d8001f4af4a.JPG)
