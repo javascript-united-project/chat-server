@@ -1,8 +1,7 @@
 .outerContainer {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  justify-content: center;  
+  height: 140vh;
 }
 
 .container {

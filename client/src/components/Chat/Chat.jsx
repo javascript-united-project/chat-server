@@ -1,63 +1,43 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import queryString from "query-string";
-import socketIOClient from "socket.io-client";
 
+import useChat from "../../hooks/useChat";
 import InfoBar from "../InfoBar/InfoBar";
 import Messages from "../Messages/Messages";
 import Input from "../Input/Input";
-import TextContainer from "../TextContainer/TextContainer";
+// import TextContainer from "../TextContainer/TextContainer";
 import "./Chat.css";
-
-const ENDPOINT = "http://localhost:5001";
 
 const Chat = () => {
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
-  const [users, setUsers] = useState("");
-  const [message, setMessage] = useState("");
-  const [messages, setMessages] = useState([]);
-  const socketRef = useRef();
+  const [err, setErr] = useState(false);
+  const { messages, sendMessage } = useChat({ name, room });
 
   useEffect(() => {
     const { name, room } = queryString.parse(window.location.search);
-    socketRef.current = socketIOClient(ENDPOINT);
-
+    if (!name || !room) return setErr(true);
     setRoom(room);
     setName(name);
-
-    socketRef.current.emit("join", { name, room }, (error) => {
-      if (error) alert(error.message);
-    });
   }, []);
 
-  useEffect(() => {
-    socketRef.current.on("message", (message) => {
-      setMessages((_) => [...messages, message]);
-    });
-    socketRef.current.on("roomData", ({ users }) => {
-      setUsers(users);
-    });
-  }, [messages]);
+  // useEffect(() => {
+  //   if (!socketRef.current) return;
 
-  const sendMessage = (event) => {
-    event.preventDefault();
-    if (message) {
-      socketRef.current.emit("sendMessage", message, () => setMessage(""));
-    }
-  };
+  //   socketRef.current.on("roomData", ({ users }) => {
+  //     setUsers(users);
+  //   });
+  // }, [messages]);
 
+  if (err) return <h3>권한이 없습니다.</h3>;
   return (
     <div className="outerContainer">
       <div className="container">
         <InfoBar room={room} />
         <Messages messages={messages} name={name} />
-        <Input
-          message={message}
-          setMessage={setMessage}
-          sendMessage={sendMessage}
-        />
+        <Input sendMessage={sendMessage} />
       </div>
-      <TextContainer users={users} />
+      {/* <TextContainer users={users} /> */}
     </div>
   );
 };

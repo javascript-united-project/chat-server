@@ -17,6 +17,7 @@ input:focus, textarea:focus, select:focus{
 
 .sendButton {
   color: #64b5f6;
+  font-weight: bold;
   background: #fff176;
   padding: 20px;
   display: inline-block;

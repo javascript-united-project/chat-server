@@ -9,21 +9,16 @@ const addUser = ({ id, name, room }) => {
   const existingUser = users.find(
     (user) => user.room === room && user.name === name
   )
-
-  if (!name || !room)
-    return { error: '사용자 이름과 방이 필요합니다.' }
   if (existingUser)
     return { error: '이미 사용중인 이름입니다.' }
 
   const user = { id, name, room }
-
   users.push(user)
-
   return { user }
 }
 
 const removeUser = (id) => {
-  const index = users.findIndex((user) => user.id === id)  
+  const index = users.findIndex((user) => user.id === id)
   if (index !== -1) return users.splice(index, 1)[0]
 }
 

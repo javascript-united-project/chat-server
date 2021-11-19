@@ -8,11 +8,10 @@
 }
 
 .messageText {
-  width: 100%;
-  letter-spacing: 0;
+  width: 100%;  
   float: left;
-  font-size: 0.8em;
   word-wrap: break-word;
+  font-size: 0.8em;
 }
 
 .messageText img {
@@ -27,11 +26,10 @@
 }
 
 .sentText {
+  font-size: 0.8em;
   display: flex;
-  align-items: center;
-  font-family: Helvetica;
-  color: #828282;
-  letter-spacing: 0.3px;
+  align-items: flex-end;  
+  color: #828282;  
 }
 
 .pl-10 {
@@ -59,7 +57,7 @@
 }
 
 .backgroundBlue {
-  background: #2979FF;
+  background: #64b5f6;
 }
 
 .backgroundLight {
