@@ -18,6 +18,7 @@ const useChat = ({ name, room }) => {
   }, [name, room]);
 
   useEffect(() => {
+    socketRef.current.on("error", (err) => alert(err.text));
     socketRef.current.on("message", (message) => {
       // const incomingMessage = {
       //   ...message,
