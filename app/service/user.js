@@ -19,6 +19,7 @@ const addUser = ({ id, name, room }) => {
 
 const removeUser = (id) => {
   const index = users.findIndex((user) => user.id === id)
+  // -1 인덱스일떄 에러처리 필요
   if (index !== -1) return users.splice(index, 1)[0]
 }
 

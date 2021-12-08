@@ -16,6 +16,7 @@ const SUBJECT_CODE_RECORDS = require('./utils/quiz');
 const pubClient = require('./db/redis');
 const subClinet = pubClient.duplicate();
 
+// +++ Working...
 // io.adapter(createAdapter(pubClient, subClinet));
 
 io.use((socket, next) => {

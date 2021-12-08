@@ -1,5 +1,5 @@
 {
-  "name": "chatcode",
+  "name": "kbu-quiz-chat-server",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
